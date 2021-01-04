@@ -1,0 +1,140 @@
+
+$grid-count: 12;
+
+
+html, body {
+	margin: 0;
+	padding: 0;
+}
+
+/* TODO: think about it */
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+
+.row {
+	margin-left: auto;
+	margin-right: auto;
+}
+.row-fluid {
+	width: 100%;
+}
+
+.row:after,
+.row-fluid:after,
+.cfix:after {
+	content: " ";
+	clear: both;
+	display: table;
+	height: 0;
+	font-size: 0;
+	visibility: hidden;
+}
+
+.col {
+	float: left;
+	margin-bottom: 10px;
+}
+
+.col.no-mb {
+	margin-bottom: 0;
+}
+
+@mixin more() {
+	ul.unstyled {
+		padding: 0;
+		margin: 0;
+		list-style: none;
+	}
+}
+
+@include more();
+
+@mixin make($name) {
+	@for $i from 1 through $grid-count {
+		.#{$name}-#{$i} {
+			width: (100% / $grid-count) * $i;
+		}
+
+		.#{$name}-pull-#{$i} {
+			right: (100% / $grid-count) * $i;
+		}
+		.#{$name}-push-#{$i} {
+			left: (100% / $grid-count) * $i;
+		}
+		.#{$name}-offset-#{$i} {
+			margin-left: (100% / $grid-count) * $i;
+		}
+		.#{$name}-float-l {
+			float: left;
+		}
+		.#{$name}-float-r {
+			float: right;
+		}
+
+		.#{$name}-no-mb {
+			margin-bottom: 0;
+		}
+	}
+
+	.#{$name}-offset-0 {
+		margin-left: 0;
+	}
+}
+
+/* xxl */
+/* TV ? */
+/*
+@media only screen and (min-width: 1825px) and (max-width: ???) {
+	.row { max-width: ???; }
+}
+*/
+
+
+
+/* Smartphones (portrait))
+		tiny (tn) */
+@media only screen and (min-width: 0) {
+	.row { max-width: 100%; }
+
+	@include make('tn');
+}
+/* Big smartphones (portrait)
+		small (xs) */
+@media only screen and (min-width: 321px) {
+	.row { max-width: 100%; }
+
+	@include make('xs');
+}
+/* Smartphones (landscape)
+		small (sm) */
+@media only screen and (min-width: 641px) {
+	.row { max-width: 640px; }
+
+	@include make('sm');
+}
+/* iPads (portrait)
+		medium (md) */
+@media only screen and (min-width: 769px) {
+	.row { max-width: 724px; }
+
+	@include make('md');
+}
+/* iPads (landscape)
+		large (lg) */
+@media only screen and (min-width: 1025px) {
+	.row { max-width: 960px; }
+
+	@include make('lg');
+}
+/* Desktops and laptops */
+/*@media only screen and (min-width: 1225px) and (max-width: 1824px) {*/
+	/* x-large (xl) */
+@media only screen and (min-width: 1225px) {
+	.row { max-width: 1140px; }
+
+	@include make('xl');
+}

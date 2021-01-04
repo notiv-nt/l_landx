@@ -1,0 +1,1082 @@
+@import "//webfonts.ru/import/sourcesans.css"
+@import "//webfonts.ru/import/raleway.css";
+
+@import 'nib'
+@import '_lib'
+@import '_mix'
+@import '_base'
+
+
+main-color = #008ed6
+
+html, body {
+	overflow hidden
+}
+
+body {
+	background-color #fff
+	font-size 16px
+	font-family 'Source Sans Pro', sans-serif
+
+	@media screen and (max-width: 1024px) {
+		font-size 14px
+	}
+}
+
+header {
+	background-repeat no-repeat
+	background-size cover
+	background-position center bottom
+	position relative
+	height 750px
+	width 100%
+	max-height 100%
+
+	.nav-wrap {
+		position absolute
+		top 0
+		left 0
+		width 100%
+		padding 30px 0
+		transition all .1s
+		z-index 5
+
+		.logo-black, nav.nav { display: none; }
+
+		&.fixed {
+			background-color #fff
+			color #000
+			position fixed
+			padding-top 20px
+			padding-bottom 20px
+			box-shadow 0 0 2px rgba(#000, .3)
+
+			.logo-black, nav.nav { display: block; }
+			.logo-white, nav.social { display: none; }
+
+			.logo {
+				padding 3px 5px 4px
+			}
+		}
+
+		.logo, nav {
+			margin-bottom 0
+			padding 0 5px
+		}
+
+		.logo {
+
+			a {
+				display inline-block
+			}
+		}
+
+		nav.nav {
+			text-align right
+
+			a {
+				def-a()
+
+				text-transform uppercase
+				display inline-block
+				font-weight bold
+				font-size 14px
+				font-family 'Raleway', sans-serif
+				position relative
+				padding 8px 11px
+
+				transition color .2s
+
+				&:hover {
+					color main-color
+
+					&:after {
+						width 18px
+					}
+				}
+
+				&:after {
+					content ''
+					position absolute
+					transition width .2s
+					width 0
+					height 2px
+					background-color main-color
+					bottom -4px
+					right 0
+					left 0
+					display block
+					margin auto
+				}
+			}
+		}
+
+		nav.toggle {
+			display none
+			padding 0 5px
+			text-align right
+
+			a {
+				def-a()
+
+				display inline-block
+				font-size 28px
+				padding 0 9px
+				border-radius 4px
+				background-color main-color
+				color #fff
+			}
+		}
+	}
+
+	.content {
+		display table
+		width 100%
+		height 100%
+		color #fff
+
+		.box {
+			display table-cell
+			text-align center
+			vertical-align middle
+		}
+
+		h1, p {
+			cursor default
+		}
+
+		h1 {
+			font 45px/1em 'Raleway', sans-serif
+			font-weight 500
+			margin-bottom 40px
+			font-family: 'Raleway', sans-serif;
+
+			b {
+				font-weight 600
+			}
+		}
+
+		p {
+			font 20px/32px 'Source Sans Pro', sans-serif
+			margin-bottom 60px
+			color #ddd
+
+			&.sub-head {
+				text-align right
+				font-size 16px
+				padding-right 170px
+				vertical-align bottom
+				padding-top 20px
+				margin-bottom 0
+
+				img {
+					display inline-block
+					margin-left 10px
+				}
+			}
+		}
+
+		form {
+			padding 20px 10px
+			background-color rgba(0, 0, 0, .4)
+
+			.input {
+				padding 0 10px
+				margin 0
+
+				@media screen and (max-width: 1025px) {
+					margin-bottom 15px
+				}
+			}
+
+			input {
+				border-radius 4px
+				display block
+				width 100%
+				padding 20px 30px
+			}
+
+			input[type="email"],
+			input[type="text"] {
+				def-input()
+
+				border 1px solid rgba(main-color, .3)
+				border-left 4px solid main-color
+				background-color black
+
+				transition border-color .3s
+
+				&:focus {
+					border-color main-color
+				}
+			}
+		}
+	}
+
+	@media screen and (max-width: 768px) {
+
+		.nav-wrap.fixed {
+
+			nav.toggle {
+				display block
+			}
+
+			nav.nav {
+				display none
+				float none
+				clear both
+				width 100%
+				padding-top 10px
+				text-align center
+			}
+		}
+
+		.content {
+
+			.box {
+				padding-top 100px
+			}
+
+			h1 {
+				font-size 25px !important
+			}
+
+			p {
+				font-size 14px
+				line-height 20px
+
+				&.sub-head {
+					padding-right 0
+					text-align center
+
+					img {
+						display none
+					}
+				}
+			}
+
+			form {
+
+				input {
+					padding 10px 15px
+				}
+			}
+		}
+	}
+
+	@media screen and (min-width: 769px) and (max-width: 1024px) {
+		.nav-wrap {
+
+			nav.nav {
+
+				a {
+					padding-left 7px
+					padding-right 7px
+				}
+			}
+		}
+	}
+
+	@media screen and (max-width: 1024px) {
+
+		.content {
+
+			h1 {
+				font-size 35px
+				margin-bottom 20px
+			}
+
+			p {
+				font-size 16px
+				margin-bottom 30px
+			}
+
+			form {
+
+				input {
+					padding 15px 18px
+				}
+			}
+		}
+	}
+}
+
+section.box, header.box, main.box, footer.box, {
+	padding-top 100px
+	padding-bottom 100px
+
+	@media screen and (max-width: 500px) {
+		padding-top 40px
+		padding-bottom 40px
+	}
+
+	@media screen and (max-width: 1024px) {
+		padding-top 70px
+		padding-bottom 70px
+	}
+}
+
+section.brief {
+
+	.pic, .cont {
+		min-height 430px
+	}
+
+	&.brief-1 {
+		.pic { padding-right: 20px; }
+		.cont { padding-left: 30px; }
+	}
+
+	&.brief-2 {
+		.pic { padding-left: 20px; }
+		.cont { padding-right: 30px; }
+	}
+
+	.cont {
+		cursor default
+		color #727272
+		line-height 1.5em
+
+		h2.title {
+			font 500 35px/1em 'Raleway', sans-serif
+			margin-bottom 60px
+			position relative
+			color #323232
+
+			&:after {
+				content ''
+				position absolute
+				bottom -34px
+				left 0
+				background-color main-color
+				width 70px
+				height 1px
+			}
+		}
+
+		p.sub-title {
+			margin-bottom 40px
+		}
+	}
+
+	.list {
+
+		.item {
+			position relative
+			padding-left 50px
+			margin-bottom 50px
+
+			&:last-of-type {
+				margin-bottom 0
+			}
+
+			.icon {
+				position absolute
+				top 2px
+				left 0
+
+				span {
+					icon(33px, main-color, #fff)
+					font-size 14px
+				}
+			}
+
+			.text {
+
+				h3 {
+					font-family 'Raleway', sans-serif
+					margin-bottom 5px
+					color #323232
+				}
+
+				p {
+					color #727272
+				}
+			}
+		}
+	}
+
+	@media screen and (max-width: 500px) {
+
+		.pic {
+			min-height 0
+			height auto
+		}
+
+		.cont {
+
+			h2.title, p.sub-title {
+				text-align center
+			}
+
+			h2.title {
+				font-size 28px
+
+				&:after {
+					right 0
+					margin auto
+				}
+			}
+		}
+	}
+
+	@media screen and (max-width: 768px) {
+		&.brief-1, &.brief-2 {
+			.pic, .cont {
+				padding-right 10px
+				padding-left 10px
+				margin-bottom 20px
+			}
+
+			.pic img {
+				margin 0 auto
+			}
+		}
+	}
+}
+
+section.features {
+
+	.items {
+		padding 10px 0
+
+		.item {
+			padding 20px
+			text-align center
+
+			.icon {
+				margin-bottom 35px
+
+				i {
+					color main-color
+					font-size 60px
+				}
+			}
+
+			h3 {
+				margin-bottom 20px
+				font-family 'Raleway', sans-serif
+				font-size 20px
+				font-weight 500
+			}
+
+			p {
+				color #727272
+				font-size 16px
+			}
+		}
+	}
+}
+
+section.pricing {
+
+	.items {
+		padding-top 10px
+
+		.item {
+			padding 15px
+
+			&.prime {
+
+				.item-head {
+					background-color main-color
+
+					span {
+						color #fff
+					}
+				}
+
+				.item-footer {
+
+					a.btn {
+						background-color main-color
+						border-color main-color
+
+						&, &:hover {
+							color #fff
+						}
+
+						&:hover {
+							background-color darken(main-color, 10%)
+						}
+					}
+				}
+			}
+
+			.item-head {
+				background-color #323232
+				color #fff
+				text-align center
+				padding 20px 10px
+				cursor default
+
+				h4 {
+					font-size 24px
+					font-family 'Raleway', sans-serif
+					margin-bottom 10px
+				}
+
+				span {
+					font-weight bold
+					color main-color
+				}
+			}
+
+			.item-body, .item-footer {
+				background-color #fff
+				cursor default
+			}
+
+			.item-body {
+
+				ul {
+					def-list()
+
+					li {
+						padding 15px 35px
+						border-bottom 1px dotted #e5e5e5
+
+						&:hover {
+							background-color #f5f5f5
+						}
+
+						span {
+							float right
+							min-width 16px
+							text-align center
+							font-weight 600
+						}
+					}
+				}
+			}
+
+			.item-footer {
+				@extend .clearfix
+
+				padding 15px 30px
+
+				b {
+					line-height 40px
+				}
+
+				a.btn {
+					float right
+
+					&:hover {
+						color main-color
+					}
+				}
+			}
+		}
+
+		@media screen and (max-width: 768px) {
+			.items .item.prime .item-footer a.btn {
+				font-size 14px
+				padding 5px 10px
+			}
+		}
+
+		@media screen and (max-width: 1024px) {
+
+			.item {
+				padding 5px 8px
+
+				.item-head {
+					padding 15px 4px
+				}
+
+				.item-body {
+
+					ul li {
+						padding 15px 10px
+					}
+				}
+
+				.item-footer {
+					padding 10px 10px
+				}
+			}
+		}
+	}
+}
+
+section.video {
+
+	iframe {
+		display block
+		width 100%
+	}
+
+	.video-desc {
+		padding 15px 0
+
+		.item {
+			cursor default
+			padding 5px 10px
+			font 600 14px/1em 'Raleway', sans-serif
+			text-align center
+
+			i {
+				color main-color
+				margin-right 10px
+				font-size 1.3em
+			}
+		}
+	}
+
+	@media screen and (max-width: 500px) {
+
+		iframe {
+			height 320px
+		}
+	}
+}
+
+section.screenshots {
+
+	.owl-pagination {
+		text-align center
+		padding-top 20px
+
+		.owl-page {
+			width wh = 14px
+			height wh
+			display inline-block
+			margin 2px 5px
+			background-color main-color
+			opacity .5
+			transition opacity .3s
+			border-radius 50%
+
+			&:hover, &.active {
+				opacity 1
+			}
+		}
+	}
+}
+
+section.trusted {
+
+	.logo-items {
+		text-align center
+		margin-bottom 70px
+
+		a.item {
+			def-a()
+
+			display inline-block
+			margin 5px 25px
+			padding 5px 0
+			vertical-align middle
+
+			img {
+				display block
+			}
+		}
+	}
+
+	.reviews {
+		cursor default
+
+		.item {
+			padding 5px 14px
+		}
+
+		.item-in {
+			border-radius 4px
+			position relative
+			background-color #f7f8fa
+			border-bottom 2px solid #e5e5e5
+			padding 40px 30px
+			text-align center
+			font-style italic
+			color #727272
+			line-height 1.6em
+
+			&:after, &:before {
+				content ''
+				display block
+				position absolute
+				right 0
+				left 0
+				margin 0 auto
+				width 0
+				bottom -10px
+				border-top 10px solid #f7f8fa
+				border-left 8px solid transparent
+				border-right 8px solid transparent
+				height 0
+			}
+
+			&:before {
+				border-top 12px solid #e5e5e5
+				border-left-width 10px
+				border-right-width 10px
+				bottom -12px
+			}
+
+			.icon {
+				position absolute
+				width wh = 40px
+				height wh
+				right 0
+				left 0
+				margin auto
+				top -(wh / 2)
+				text-align center
+				padding 3px
+				font-size 12px
+				background-color #fff
+				border 1px solid #e5e5e5
+
+				&, & span {
+					border-radius 4px
+				}
+
+				span {
+					width 100%
+					height 100%
+					line-height 32px
+					display block
+					background-color main-color
+					color #fff
+				}
+			}
+		}
+
+		.item-foot {
+			text-align center
+			padding 30px 0 10px
+
+			p {
+				color #727272
+				font-size 14px
+				margin-bottom 5px
+
+				&:last-of-type {
+					margin-bottom 0
+				}
+
+				a {
+					def-a()
+
+					color main-color
+					font-weight bold
+					font-size 16px
+
+					&:hover {
+						text-decoration underline
+					}
+				}
+			}
+		}
+	}
+
+	@media screen and (max-width: 1024px) {
+		.reviews .item .item-in {
+			padding 20px 10px
+			font-size 13px
+		}
+	}
+}
+
+section.ready {
+	padding 120px 0
+	color #fff
+	text-align center
+
+	h2, h3 {
+		margin-bottom 20px
+		font-family 'Raleway', sans-serif
+		cursor default
+	}
+
+	h2 {
+		font-size 35px
+		margin-bottom 40px
+	}
+
+	h3 {
+		font-size 20px
+	}
+
+	p {
+
+		a {
+			padding 20px 30px
+			color #fff
+			border none
+
+			&:hover {
+				background-color darken(main-color, 10%)
+			}
+		}
+	}
+
+	@media screen and (max-width: 500px) {
+
+		h2 {
+			font-size 28px
+		}
+
+		p a {
+			padding 15px 20px
+		}
+	}
+
+	@media screen and (max-width: 1024px) {
+		padding-top 70px
+		padding-bottom 70px
+	}
+}
+
+section.contact {
+
+	.box-title {
+		margin-bottom 0
+	}
+
+	form {
+		display none
+		padding 40px 0
+
+		.input {
+			padding  10px
+
+			input, textarea {
+				display block
+				width 100%
+				max-width 100%
+				outline 0
+				border 0
+				border 1px solid #e3e3e3
+				border-radius 3px
+				color #727272
+				font inherit
+				// border-left 3px solid main-color
+				padding 15px 20px
+				transition border-width .1s
+
+				&:focus {
+					border-color darken(#e3e3e3, 10%)
+					border-left 3px solid main-color
+				}
+			}
+		}
+
+		input[type="submit"] {
+			color #fff
+			padding 17px 30px
+			border none
+
+			&:focus {
+				background-color darken(main-color, 20%)
+			}
+		}
+	}
+}
+
+footer {
+	text-align center
+
+	p {
+		margin-bottom 20px
+		color #919191
+		cursor default
+
+		a.logo {
+			display inline-block
+		}
+	}
+}
+
+
+nav.social {
+	color #091217
+	text-align right
+
+	a {
+		def-a()
+
+		display inline-block
+		border-radius 50%
+		background-color #fff
+		width wh = 28px
+		height wh
+		text-align center
+		line-height wh
+		font-size 15px
+		margin 0 3px
+		transition  color .3s,
+								background-color .3s
+
+		&:hover {
+			color #fff
+			background-color main-color
+		}
+	}
+}
+
+a.link {
+	def-a()
+
+	color main-color
+
+	&:hover {
+		text-decoration underline
+	}
+}
+
+.main-btn {
+	def-a()
+
+	border none
+	outline none
+
+	color #fff
+	background-color main-color
+	text-transform uppercase
+	transition background-color .2s
+
+	font inherit
+	font-family 'Raleway', sans-serif
+	font-weight bold
+
+	&:hover {
+		background-color darken(main-color, 10%)
+	}
+	&:active {
+		background-color darken(main-color, 20%)
+	}
+}
+
+.btn {
+	def-a()
+
+	font-family 'Raleway', sans-serif
+	font-weight bold
+	color inherit
+	text-transform uppercase
+	display inline-block
+	text-align center
+	border 1px solid #727272
+	color #727272
+	text-decoration none
+	border-radius 4px
+	padding 10px 15px
+
+	transition 	color .2s,
+							border-color .2s,
+							background-color .2s
+}
+
+.grey-bg {
+
+	background-color #f7f8fa
+}
+
+#preloader {
+	display block
+	position fixed
+	z-index 99999
+	top 0
+	left 0
+	width 100%
+	height 100%
+	background #fff url('../img/preloader.svg') center center no-repeat;
+	background-size 60px
+}
+
+.box-title {
+	text-align center
+	margin-bottom 60px
+	cursor default
+
+	h2 {
+		position relative
+		font 400 35px/1.2em 'Raleway', sans-serif
+		margin-bottom 42px
+
+		&:after {
+			content ''
+			position absolute
+			bottom -20px
+			left 0
+			right 0
+			margin auto
+			background-color main-color
+			width 70px
+			height 1px
+		}
+	}
+
+	p {
+		color #727272
+	}
+
+	@media screen and (max-width: 500px) {
+
+		h2 {
+			font-size 28px
+		}
+	}
+}
+
+ul.social {
+	text-align center
+
+	li {
+		display inline-block
+		padding 3px
+
+		a {
+			def-a()
+
+			background-color #919191
+			color #fff
+			display block
+			width wh = 25px
+			height wh
+			line-height wh
+			text-align center
+			border-radius 4px
+			font-size 15px
+
+			&:hover {
+				background-color main-color
+			}
+		}
+	}
+}
+
+.link {
+	def-a()
+
+	color main-color
+	text-decoration none
+	text-transform uppercase
+	font-weight 600
+	font-family 'Raleway', sans-serif
+
+	&:hover {
+		text-decoration underline
+	}
+
+	i {
+		margin-right 4px
+	}
+}
+
+.text-center {
+	text-align center
+}
+
+img.img-responsive {
+	display block
+	max-width 100%
+	height auto
+}
+
+* {
+	// outline 1px solid blue
+}

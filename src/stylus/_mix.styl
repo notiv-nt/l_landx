@@ -1,0 +1,33 @@
+def-a() {
+	text-decoration none
+	color inherit
+}
+
+def-input() {
+	background none
+	font inherit
+
+	&, &:focus, &:hover {
+		outline none
+	}
+}
+
+def-list() {
+	list-style none
+
+	&, li {
+		padding 0
+		margin 0
+	}
+}
+
+icon(wh, bg, cl) {
+	width wh = 33px
+	display block
+	height wh
+	line-height wh
+	text-align center
+	color cl
+	background-color bg
+	border-radius 5px
+}
